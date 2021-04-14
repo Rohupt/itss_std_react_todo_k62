@@ -18,13 +18,7 @@ import useStorage from '../hooks/storage';
 import {getKey} from "../lib/util";
 
 function Todo() {
-  const [items, putItems] = useState([
-      /* テストコード 開始 */
-    { key: getKey(), text: '日本語の宿題', done: false },
-    { key: getKey(), text: 'reactを勉強する', done: false },
-    { key: getKey(), text: '明日の準備をする', done: false },
-    /* テストコード 終了 */
-  ]);
+  const [items, putItems, clearItems] = useStorage([]);
 
   const addItem = (formData) => {
     putItems([{ key: getKey(), text: formData, done: false }, ...items]);
@@ -37,6 +31,9 @@ function Todo() {
       </div>
       <Input addItem={addItem}/>
       <Filter items={items}/>
+      <div className="panel-block">
+        <button className="customTab" onClick={clearItems}>全てのTodoを削除</button>
+      </div>
     </div>
   );
 }
