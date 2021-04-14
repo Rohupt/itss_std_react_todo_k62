@@ -11,7 +11,6 @@ function TodoItem( {item} ) {
   const onClick = () => {
     setDone(!isDone);
     item.done = !item.done;
-    console.log(item.done);
   }
 
   return (
