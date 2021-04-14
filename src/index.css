@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.customTab {
+  width: 150px;
+  letter-spacing: 0.5px;
+  background-color: white;
+  border: 1px transparent;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+  margin: auto;
+  }
+
+.customTab :focus {
+    outline: 1px dashed red;
+  }
+
+.active{
+  font-weight: bold;
+  border: 1px transparent;
+  border-bottom: 1px solid black;
+}

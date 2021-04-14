@@ -8,7 +8,6 @@ import React, { useState } from 'react';
 */
 
 /* コンポーネント */
-import TodoItem from './TodoItem';
 import Input from './Input';
 import Filter from './Filter';
 
@@ -37,12 +36,7 @@ function Todo() {
         ITSS ToDoアプリ
       </div>
       <Input addItem={addItem}/>
-      {items.map(item =>
-        <TodoItem item={item}/>
-      )}
-      <div className="panel-block">
-        {items.length} items
-      </div>
+      <Filter items={items}/>
     </div>
   );
 }
