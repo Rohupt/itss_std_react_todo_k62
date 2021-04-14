@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react';
 const STORAGE_KEY = 'itss-todo';
 
 function useStorage() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(localStorage.getItem(STORAGE_KEY) ? JSON.parse(localStorage.getItem(STORAGE_KEY)) : []);
 　
 　/* 副作用を使う */
   useEffect(() => {
