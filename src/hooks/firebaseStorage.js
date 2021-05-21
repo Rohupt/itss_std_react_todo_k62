@@ -4,14 +4,18 @@ import { addFbItem, updateFbItem, getFbItems, clearFbItems } from "../lib/fireba
 
 function useFbStorage() {
   const [items, setItems] = useState([]);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     getItems();
-  }, [items]);
+    document.title = `You clicked ${count} times`
+    console.log(items);
+  }, []);
 
   const getItems = async () => {
-    const items = await getFbItems();
-    setItems(items);
+    const tempItems = await getFbItems();
+    setItems(tempItems);
+    setCount(count + 1);
   };
 
   const putItem = async (item) => {

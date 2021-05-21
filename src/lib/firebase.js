@@ -16,9 +16,8 @@ const db = firebase.firestore();
 
 export const getFbItems = async () => {
   try {
-    const snapshot = await db.collection("todos").get().docs;
-    console.log(snapshot);
-    const items = snapshot.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const snapshot = await db.collection("todos").get();
+    const items = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     return items;
   } catch (err) {
     console.error(err);
