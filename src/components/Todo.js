@@ -12,16 +12,16 @@ import Input from './Input';
 import Filter from './Filter';
 
 /* カスタムフック */
-import useStorage from '../hooks/storage';
+import useFbStorage from '../hooks/firebaseStorage';
 
 /* ライブラリ */
 import {getKey} from "../lib/util";
 
 function Todo() {
-  const [items, putItems, clearItems] = useStorage([]);
+  const [items, putItem, updateItem, clearItems] = useFbStorage([]);
 
   const addItem = (formData) => {
-    putItems([{ key: getKey(), text: formData, done: false }, ...items]);
+    putItem({ key: getKey(), text: formData, done: false });
   }
 
   return (
